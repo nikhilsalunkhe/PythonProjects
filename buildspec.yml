@@ -3,27 +3,25 @@ version: 0.2
 
 phases:
   install:
-    #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
-    #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
     runtime-versions:
-       python: 3.9
-      #commands:
-      #  - echo "Installing required libraries"
-      #  - echo "Installtion complete"
-    pre_build:
-      commands:
-        - echo "Run unit test using poetry"
-        #- poetry run pytest "C:\Users\nikhi\myproject\tests\test__init__.py"
-    build:
-      commands:
-        - echo "Build wheel from poetry"
-        #- poetry build -f wheel
-        #- poetry check
-        - echo "Run poetry check"
-    post_build:
-      commands:
-        - echo "Run unit test using poetry"
-        #- poetry run pytest "C:\Users\nikhi\myproject\tests\test__init__.py"
+      python: 3.9
+    commands:
+      - echo "Installing required libraries"
+      - echo "Installtion complete"
+  pre_build:
+    commands:
+      - echo "Run unit test using poetry"
+      #- poetry run pytest "C:\Users\nikhi\myproject\tests\test__init__.py"
+  build:
+    commands:
+      - echo "Build wheel from poetry"
+      #- poetry build -f wheel
+      #- poetry check
+      - echo "Run poetry check"
+  post_build:
+    commands:
+      - echo "Run unit test using poetry"
+     #- poetry run pytest "C:\Users\nikhi\myproject\tests\test__init__.py"
 #artifacts:
   #files:
     # - We don't currently preserve any artifacts
