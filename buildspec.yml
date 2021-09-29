@@ -3,10 +3,26 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      python: 3.8
     commands:
       - echo "Installing required libraries"
+      - yum -qye 0 update
+      - yum -qye 0 groupinstall development
+      - yum -y install python-devel
+      - yum -qye 0 install libxml2-devel libxslt-devel libjpeg-devel zlib-devel libpng-devel openssl-devel sqlite-devel
+      - export HOME_DIR=`pwd`
+      # I would recommend hosting the tarball in an uncompressed format on S3 in order to speed up the download and decompression
+      - wget --no-verbose https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
+      - tar -xzf Python-3.6.1.tgz
+      - cd Python-3.6.1
+      - ./configure -q --enable-loadable-sqlite-extensions
+      - make --silent -j2
+      - make altinstall --silent
+      - cd $HOME_DIR
+      - rm Python-3.6.1.tgz
+      - rm -rf Python-3.6.1/
+      - ln -s /usr/local/bin/python3.6 /usr/bin/python3
+      - python3 -m pip install virtualenv
+      - pip3 install -U nltk
       - pip3 install pytest
       - pip3 install pynt
       - pip3 install poetry
