@@ -7,9 +7,9 @@ phases:
       python: 3.6
     commands:
       - echo "Installing required libraries"
-      - pip3 install pytest
-      - pip3 install pynt
-      - pip3 install poetry
+      - pip install pytest
+      - pip install pynt
+      - pip install poetry
       - poetry env use python3.6
       - poetry --version
       - poetry check
