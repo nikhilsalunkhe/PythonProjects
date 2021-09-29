@@ -26,11 +26,11 @@ phases:
       - pip3 install pytest
       - pip3 install pynt
       - pip3 install poetry
-      - poetry env use python3.8
+      - poetry env use python3.6
       - poetry --version
       - poetry check
       - poetry install
-      - echo "Installtion complete"
+      - echo "Installtion complete "
   pre_build:
     commands:
       - echo "Run unit test using poetry"
