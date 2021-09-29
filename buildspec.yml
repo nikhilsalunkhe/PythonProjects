@@ -7,6 +7,13 @@ phases:
       python: 3.9
     commands:
       - echo "Installing required libraries"
+      - pip3 install pytest
+      - pip3 install pynt
+      - pip3 install poetry
+      - poetry env use python3.9
+      - poetry --version
+      - poetry check
+      - poetry install
       - echo "Installtion complete"
   pre_build:
     commands:
