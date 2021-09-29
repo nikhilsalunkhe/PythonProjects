@@ -18,7 +18,7 @@ phases:
   pre_build:
     commands:
       - echo "Run unit test using poetry"
-      - poetry run pytest tests/test__init__.py"
+      - poetry run pytest tests/test__init__.py
   build:
     commands:
       - echo "Build wheel from poetry"
@@ -28,7 +28,7 @@ phases:
   post_build:
     commands:
       - echo "Run unit test using poetry"
-      - poetry run pytest tests/test__init__.py"
+      - poetry run pytest tests/test__init__.py
 #artifacts:
   #files:
     # - We don't currently preserve any artifacts
